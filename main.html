@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <meta charset="utf-8" />
+  <title>main</title>
+  <head>
+    <script
+      src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
+      integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo="
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- script that switches between light and dark -->
+
+    <script>
+      $(document).ready(function () {
+        $("input[name='mode']").change(function () {
+          if ($(this).val() == 'light') {
+            $('body').css('background-color', 'white');
+            $('body').css('color', 'black');
+            //card color
+            $('.card').css('background-color', 'white');
+          } else {
+            $('body').css('background-color', 'black');
+            $('body').css('color', 'white');
+            //card color
+            $('.card').css('background-color', 'grey');
+          }
+        });
+      });
+    </script>
+
+    <script>
+      function calculateA() {
+        var a = $('#a').val();
+        var b = (a / 1.618).toFixed(2);
+        $('#b').val(b);
+      }
+
+      function calculateB() {
+        var b = $('#b').val();
+        var a = (b * 1.618).toFixed(2);
+        $('#a').val(a);
+      }
+
+      function calculateAplusB() {
+        var a = $('#a').val();
+        var b = (a / 1.618).toFixed(2);
+        var aPlusB = (parseFloat(a) + parseFloat(b)).toFixed(2);
+        $('#aPlusB').html(aPlusB);
+      }
+
+      function draw() {
+        var a = $('#a').val();
+        if (a == '' || a < 0) {
+          a = 0;
+        }
+
+        var b = $('#b').val();
+        if (b == '' || b < 0) {
+          b = 0;
+        }
+
+        //get bootstrap col with id "drawing" and get its width
+        var containerWidth = $('#drawing').width();
+        //add a and b together
+
+        var aPlusB = Number(a) + Number(b);
+
+        console.log('colMaxWidth: ' + containerWidth);
+        console.log('aPlusB: ' + aPlusB);
+        if (aPlusB > containerWidth) {
+          $('#A').html('Shape too big to draw');
+          $('#B').html('');
+          //transparent background
+          $('#A').css('background-color', 'transparent');
+          $('#B').css('background-color', 'transparent');
+        } else {
+          //if shape is smaller than text then text will be hidden
+          $('#A').html('A');
+          $('#B').html('B');
+          if (a < 10) {
+            $('#A').html('');
+          }
+          if (b < 10) {
+            $('#B').html('');
+          }
+
+          $('#A').css('background-color', 'red');
+          $('#B').css('background-color', 'blue');
+          $('#A').css('width', a + 'px');
+          $('#A').css('height', a + 'px');
+          $('#B').css('width', b + 'px');
+          $('#B').css('height', a + 'px');
+        }
+      }
+
+      function calculateAndDraw(source) {
+        if (source == 'a') {
+          calculateA();
+        } else {
+          calculateB();
+        }
+        calculateAplusB();
+        draw();
+      }
+      $(document).ready(function () {
+        // all events for a should fire redrawing the shape
+
+        $('#a').change(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').keyup(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').keydown(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').keypress(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').focus(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').blur(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').select(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').change(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').submit(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').click(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').dblclick(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').mousedown(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').mouseup(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').mousemove(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').mouseover(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').mouseout(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').mouseenter(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').mouseleave(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').hover(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').focusin(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').focusout(function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').on('input', function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').on('change', function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').on('paste', function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').on('cut', function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').on('copy', function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').on('select', function () {
+          calculateAndDraw('a');
+        });
+
+        $('#a').on('submit', function () {
+          calculateAndDraw('a');
+        });
+
+        $('#b').change(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').keyup(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').keydown(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').keypress(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').focus(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').blur(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').select(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').change(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').submit(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').click(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').dblclick(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').mousedown(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').mouseup(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').mousemove(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').mouseover(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').mouseout(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').mouseenter(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').mouseleave(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').hover(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').focusin(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').focusout(function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').on('input', function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').on('change', function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').on('paste', function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').on('cut', function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').on('copy', function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').on('select', function () {
+          calculateAndDraw('b');
+        });
+
+        $('#b').on('submit', function () {
+          calculateAndDraw('b');
+        });
+      });
+    </script>
+
+    <style>
+      #A {
+        background-color: red;
+      }
+      #B {
+        background-color: blue;
+      }
+    </style>
+
+    <!-- bootstrap libraries  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+      "
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3">
+            <h6>Mode:</h6>
+            <div style="display: flex; flex-direction: row">
+              <div class="form-check" style="margin: 5px" ;>
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="mode"
+                  value="light"
+                  checked
+                />
+                <label class="form-check-label" for="mode"> Light </label>
+              </div>
+              <div class="form-check" style="margin: 5px" ;>
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="mode"
+                  value="dark"
+                />
+                <label class="form-check-label" for="mode"> Dark </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- title of the page - centered-->
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9">
+          <h1 style="text-align: center">Golden Ratio Calculator</h1>
+          <p class="lead" style="text-align: justify">
+            Golden Ratio is a special number that is used in many areas of
+            mathematics, art, architecture, and nature. It is defined as the
+            ratio of two consecutive Fibonacci numbers. The Fibonacci sequence
+            is a sequence of numbers where each number is the sum of the two
+            preceding numbers. The first two numbers in the Fibonacci sequence
+            are 0 and 1. The third number is 1, the fourth is 2, the fifth is 3,
+            the sixth is 5, and so on. The golden ratio is 1.618.
+          </p>
+        </div>
+        <div class="col-sm-3">
+          <img
+            src="golden.jpeg"
+            alt="Golden Ratio"
+            style="width: 80%; border-radius: 5px"
+            id="golden_image"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- container with one row with two columns - bootstrapped . column with form 1/4 , column with drawing 3/4 -->
+    <div class="container" id="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">
+                Enter a number to calculate golden ratio
+              </h6>
+
+              <form>
+                <div class="mb-3">
+                  <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                      <label for="a">a =</label>
+                    </div>
+                    <div class="col-auto">
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="a"
+                        placeholder="Enter a"
+                        name="a"
+                        min="0"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                      <label for="b">b =</label>
+                    </div>
+                    <div class="col-auto">
+                      <input
+                        type="number"
+                        class="form-control"
+                        id="b"
+                        placeholder="Enter b"
+                        name="b"
+                        min="0"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- a + b calculated result -->
+                <div class="mb-3">
+                  <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                      <label for="aPlusB">a + b =</label>
+                    </div>
+                    <div class="col-auto">
+                      <label id="aPlusB"></label>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-9" id="drawing">
+          <div style="display: flex; flex-direction: row">
+            <div id="A" style="text-align: center"></div>
+            <div id="B" style="text-align: center"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
